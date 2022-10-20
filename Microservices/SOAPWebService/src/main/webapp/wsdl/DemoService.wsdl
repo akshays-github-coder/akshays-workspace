@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://com" xmlns:intf="http://com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="square">
+    <complexType>
+     <sequence>
+      <element name="n" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="squareResponse">
+    <complexType>
+     <sequence>
+      <element name="squareReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="squareResponse">
+
+      <wsdl:part element="impl:squareResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="squareRequest">
+
+      <wsdl:part element="impl:square" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DemoService">
+
+      <wsdl:operation name="square">
+
+         <wsdl:input message="impl:squareRequest" name="squareRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:squareResponse" name="squareResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DemoServiceSoapBinding" type="impl:DemoService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="square">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="squareRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="squareResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DemoServiceService">
+
+      <wsdl:port binding="impl:DemoServiceSoapBinding" name="DemoService">
+
+         <wsdlsoap:address location="http://localhost:8080/SOAPWebService/services/DemoService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

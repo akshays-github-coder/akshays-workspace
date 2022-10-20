@@ -1,0 +1,5 @@
+1641274850316	Rename package 'com.cwa.department.service'
+1641274868117	Rename package 'com.cwa.department.service.entity'
+1641274883867	Rename package 'com.cwa.department.service.repository'
+1641274929230	Move compilation unit
+1641277532982	Rename resource 'application.properties'
