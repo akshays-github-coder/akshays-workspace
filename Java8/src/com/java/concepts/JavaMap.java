@@ -63,5 +63,11 @@ public class JavaMap {
 			
 		}
 		
+		System.out.println("\nAfter invoking putIfAbsent method using stream API");
+		hashMap.entrySet().stream().forEach(System.out::println);
+		
+		System.out.println("\nAfter invoking putIfAbsent method with limit");
+		hashMap.entrySet().stream().limit(2).forEach(System.out::println);
+		
 	}
 }

@@ -2,6 +2,8 @@ package com.cwa.department.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,8 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 	
+	private static final Logger log = LoggerFactory.getLogger(DepartmentController.class);
+	
 	@PostMapping("/")
 	public Department saveDepartment(@RequestBody Department department) {
 		log.info("Inside saveDepartment method of DepartmentController");
@@ -45,10 +49,7 @@ public class DepartmentController {
 	@DeleteMapping("/{id}")
 	public Department deleteDepartmentById(@PathVariable("id") Long departmentId) {
 		log.info("Inside deleteDepartmentById method of DepartmentController");
-		return departmentService.deleteDepartmentById(departmentId);
-		
+		return departmentService.deleteDepartmentById(departmentId);	
 	}
-	
-	
 	
 }

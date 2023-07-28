@@ -2,6 +2,7 @@ package com.cwa.springbootmongodb.controller;
 
 import java.util.List;
 
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -50,6 +51,16 @@ public class PersonController {
 		
 		Pageable pageable = PageRequest.of(page, size);
 		return personService.search(name, minAge, maxAge, city, pageable);
+	}
+	
+	@GetMapping(value = "/oldestPerson")
+	public List<Document> getOldestPerson(){
+		return personService.getOldestPersonByCity();
+	}
+	
+	@GetMapping(value = "/getPopulationByCity")
+	public List<Document> getPopulationByCity(){
+		return personService.getPopulationByCity();
 	}
 	
 }

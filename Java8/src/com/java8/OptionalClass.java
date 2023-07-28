@@ -13,7 +13,7 @@ import java.util.Optional;
 public class OptionalClass {
 
 	public static void main(String args[]) {
-		OptionalClass java8Tester = new OptionalClass();
+		OptionalClass optionalClass = new OptionalClass();
 		Integer value1 = null;
 		Integer value2 = new Integer(10);
 
@@ -22,7 +22,7 @@ public class OptionalClass {
 
 		//Optional.of - throws NullPointerException if passed parameter is null
 		java.util.Optional<Integer> b = Optional.of(value2);
-		System.out.println(java8Tester.sum(a,b));
+		System.out.println(optionalClass.sum(a,b));
 	}
 
 	public Integer sum(Optional<Integer> a, Optional<Integer> b) {
